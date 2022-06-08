@@ -15,6 +15,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Chase\source\repos\MegaDesk\MegaDesk
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Chase/source/repos/MegaDesk/MegaDesk/Pages/DeskQuotes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVza1F1b3Rlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Chase/source/repos/MegaDesk/MegaDesk/Pages/DeskQuotes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVza1F1b3Rlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Chase/source/repos/MegaDesk/MegaDesk/Pages/DeskQuotes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVza1F1b3Rlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Chase/source/repos/MegaDesk/MegaDesk/Pages/DeskQuotes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVza1F1b3Rlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Chase/source/repos/MegaDesk/MegaDesk/Pages/DeskQuotes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVza1F1b3Rlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Chase/source/repos/MegaDesk/MegaDesk/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,7 +1,10 @@
-﻿namespace MegaDesk.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MegaDesk.Models
 {
     public class DeliveryType
     {
+        [Key]
         public int DeliveryTypeId { get; set; }
         public string DeliveryName { get; set; }
         public decimal PriceUnder1000 { get; set; }

@@ -4,10 +4,16 @@ namespace MegaDesk.Models
 {
     public class DeskQuote
     {
+        public DeskQuote()
+        {
+
+        }
+
         private const decimal BASE_DESK_PRICE = 200.00M;
         private const decimal SURFACE_AREA_COST = 200.00M;
         private const decimal DRAWER_COST = 200.00M;
 
+        [Key]
         public int DeskQuoteId { get; set; }
 
         [Required, Display(Name = "Customer Name")]
