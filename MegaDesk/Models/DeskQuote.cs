@@ -27,10 +27,9 @@ namespace MegaDesk.Models
         public decimal QuotePrice { get; set; }
 
         // reference to Desk and DeliveryType classes (foreign keys)
-        [Required]
         public int DeskId { get; set; }
 
-        [Required, Display(Name = "Delivery Type")]
+        [Display(Name = "Delivery Type")]
         public int DeliveryTypeId { get; set; }
 
         // referencing foreign keys are not enough. We need a way to store data referenced by the foreign key

@@ -36,21 +36,28 @@ namespace MegaDesk.Pages.DeskQuotes
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            // TODO: delete quote price = 0 later and call GetQuotePrice instead
-            DeskQuote.QuotePrice = 0;
-            DeskQuote.QuoteDate = DateTime.Now;
-
             if (!ModelState.IsValid || _context.DeskQuote == null || DeskQuote == null)
             {
+                Debug.WriteLine(DeskQuote.CustomerName);
+                Debug.WriteLine(DeskQuote.DeskQuoteId);
                 Debug.WriteLine(DeskQuote.DeliveryType);
-                // Debug.WriteLine(DeskQuote.Desk.DesktopMaterial); Desk not set to instance of an object
                 return Page();
             }
 
-          _context.DeskQuote.Add(DeskQuote);
-          await _context.SaveChangesAsync();
+            _context.Desk.Add(Desk);
+            await _context.SaveChangesAsync();
 
-          return RedirectToPage("./Index");
+            // set id for desk first
+            DeskQuote.DeskId = Desk.DeskId;
+
+            // TODO: delete quote price = 0 later and call GetQuotePrice instead
+            DeskQuote.QuoteDate = DateTime.Now;
+            DeskQuote.QuotePrice = 0;
+
+            _context.DeskQuote.Add(DeskQuote);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
     }
 }

@@ -15,5 +15,6 @@ namespace MegaDesk.Data
         }
 
         public DbSet<MegaDesk.Models.DeskQuote>? DeskQuote { get; set; }
+        public DbSet<MegaDesk.Models.Desk>? Desk { get; set; }
     }
 }
