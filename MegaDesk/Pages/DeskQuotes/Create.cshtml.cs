@@ -20,12 +20,6 @@ namespace MegaDesk.Pages.DeskQuotes
             _context = context;
         }
 
-        [BindProperty]
-        public Desk Desk { get; set; }
-
-        [BindProperty]
-        public DeskQuote DeskQuote { get; set; }
-
         public IActionResult OnGet()
         {
             ViewData["DeliveryTypeId"] = new SelectList(_context.Set<DeliveryType>(), "DeliveryTypeId", "DeliveryName");
@@ -33,10 +27,16 @@ namespace MegaDesk.Pages.DeskQuotes
             return Page();
         }
 
+        [BindProperty]
+        public Desk Desk { get; set; }
+
+        [BindProperty]
+        public DeskQuote DeskQuote { get; set; }
+
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid || _context.DeskQuote == null || DeskQuote == null)
+            if (/*!ModelState.IsValid ||*/ _context.DeskQuote == null || DeskQuote == null)
             {
                 Debug.WriteLine(DeskQuote.CustomerName);
                 Debug.WriteLine(DeskQuote.DeskQuoteId);
@@ -49,6 +49,7 @@ namespace MegaDesk.Pages.DeskQuotes
 
             // set id for desk first
             DeskQuote.DeskId = Desk.DeskId;
+            DeskQuote.Desk = Desk;
 
             // TODO: delete quote price = 0 later and call GetQuotePrice instead
             DeskQuote.QuoteDate = DateTime.Now;
