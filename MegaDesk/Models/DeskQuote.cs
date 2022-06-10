@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using MegaDesk.Data;
 
 namespace MegaDesk.Models
 {
@@ -31,7 +32,5 @@ namespace MegaDesk.Models
         public Desk? Desk { get; set; }
 
         public DeliveryType? DeliveryType { get; set; }
-
-        // methods (GetQuotePrice)
     }
 }

@@ -21,7 +21,7 @@ namespace MegaDesk.Pages.DeskQuotes
         }
 
         [BindProperty]
-        public DeskQuote DeskQuote { get; set; } = default!;
+        public DeskQuote DeskQuote { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,14 +30,21 @@ namespace MegaDesk.Pages.DeskQuotes
                 return NotFound();
             }
 
+            // include all necessary data from other tables based on id
+            DeskQuote = await _context.DeskQuote
+                .Include(d => d.DeliveryType)
+                .Include(d => d.Desk)
+                .FirstOrDefaultAsync(m => m.DeskQuoteId == id);
+
+            // find the correct deskquote from the database
             var deskquote =  await _context.DeskQuote.FirstOrDefaultAsync(m => m.DeskQuoteId == id);
             if (deskquote == null)
             {
                 return NotFound();
             }
             DeskQuote = deskquote;
-           ViewData["DeliveryTypeId"] = new SelectList(_context.Set<DeliveryType>(), "DeliveryTypeId", "DeliveryTypeId");
-           ViewData["DeskId"] = new SelectList(_context.Set<Desk>(), "DeskId", "DeskId");
+            ViewData["DeliveryTypeId"] = new SelectList(_context.Set<DeliveryType>(), "DeliveryTypeId", "DeliveryName");
+            ViewData["DesktopMaterialId"] = new SelectList(_context.Set<DesktopMaterial>(), "DesktopMaterialId", "DesktopMaterialName");
             return Page();
         }
 
@@ -54,6 +61,13 @@ namespace MegaDesk.Pages.DeskQuotes
 
             try
             {
+                await _context.SaveChangesAsync();
+
+                // implement quote price later
+                DeskQuote.QuotePrice = 0;
+
+                // save deskquote
+                _context.Attach(DeskQuote).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
