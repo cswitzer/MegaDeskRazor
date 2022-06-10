@@ -14,11 +14,12 @@ namespace MegaDesk.Models
         [Required, Range(0, 7), Display(Name="Number of Drawers")]
         public int NumDrawers { get; set; }
 
-        // foreign keys
         [Display(Name="Desktop Material")]
         public int DesktopMaterialId { get; set; }
 
         // data referenced by foreign keys
-        public DesktopMaterial DesktopMaterial { get; set; }
+        public DesktopMaterial? DesktopMaterial { get; set; }
+
+        public DeskQuote? DeskQuote { get; set; }
     }
 }

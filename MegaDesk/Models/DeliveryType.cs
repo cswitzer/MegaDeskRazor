@@ -4,11 +4,6 @@ namespace MegaDesk.Models
 {
     public class DeliveryType
     {
-        public DeliveryType()
-        {
-
-        }
-
         [Key]
         public int DeliveryTypeId { get; set; }
         public string DeliveryName { get; set; }

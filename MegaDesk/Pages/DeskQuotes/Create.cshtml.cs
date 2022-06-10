@@ -36,11 +36,10 @@ namespace MegaDesk.Pages.DeskQuotes
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (/*!ModelState.IsValid ||*/ _context.DeskQuote == null || DeskQuote == null)
+            if (!ModelState.IsValid || _context.DeskQuote == null || DeskQuote == null)
             {
-                Debug.WriteLine(DeskQuote.CustomerName);
-                Debug.WriteLine(DeskQuote.DeskQuoteId);
-                Debug.WriteLine(DeskQuote.DeliveryType);
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                Debug.WriteLine(errors);
                 return Page();
             }
 
