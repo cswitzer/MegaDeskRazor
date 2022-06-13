@@ -29,7 +29,10 @@ namespace MegaDesk.Pages.DeskQuotes
                 return NotFound();
             }
 
-            var deskquote = await _context.DeskQuote.FirstOrDefaultAsync(m => m.DeskQuoteId == id);
+            var deskquote = await _context.DeskQuote
+                    .Include(d => d.DeliveryType)
+                    .Include(d => d.Desk)
+                    .FirstOrDefaultAsync(m => m.DeskQuoteId == id);
 
             if (deskquote == null)
             {

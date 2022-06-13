@@ -1,0 +1,1 @@
+"MegaDeskContext": "Server=(localdb)\\mssqllocaldb;Database=MegaDesk.Data;Trusted_Connection=True;MultipleActiveResultSets=true"
