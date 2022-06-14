@@ -3,7 +3,6 @@ using System;
 using MegaDesk.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -12,38 +11,32 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MegaDesk.Migrations
 {
     [DbContext(typeof(MegaDeskContext))]
-    [Migration("20220607230931_SmallChanges")]
-    partial class SmallChanges
+    [Migration("20220614194920_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.5")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
 
             modelBuilder.Entity("MegaDesk.Models.DeliveryType", b =>
                 {
                     b.Property<int>("DeliveryTypeId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeliveryTypeId"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("DeliveryName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("PriceBetween1000And2000")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("PriceOver1000")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("PriceUnder1000")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("DeliveryTypeId");
 
@@ -54,21 +47,19 @@ namespace MegaDesk.Migrations
                 {
                     b.Property<int>("DeskId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeskId"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Depth")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("DesktopMaterialId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("NumDrawers")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Width")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("DeskId");
 
@@ -81,31 +72,30 @@ namespace MegaDesk.Migrations
                 {
                     b.Property<int>("DeskQuoteId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeskQuoteId"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CustomerName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("DeliveryTypeId")
-                        .HasColumnType("int");
+                    b.Property<int?>("DeliveryTypeId")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<int>("DeskId")
-                        .HasColumnType("int");
+                    b.Property<int?>("DeskId")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("QuoteDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("QuoteDate")
+                        .HasColumnType("TEXT");
 
-                    b.Property<decimal>("QuotePrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<decimal?>("QuotePrice")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("DeskQuoteId");
 
                     b.HasIndex("DeliveryTypeId");
 
-                    b.HasIndex("DeskId");
+                    b.HasIndex("DeskId")
+                        .IsUnique();
 
                     b.ToTable("DeskQuote");
                 });
@@ -114,16 +104,13 @@ namespace MegaDesk.Migrations
                 {
                     b.Property<int>("DesktopMaterialId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DesktopMaterialId"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Cost")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("DesktopMaterialName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("DesktopMaterialId");
 
@@ -145,19 +132,20 @@ namespace MegaDesk.Migrations
                 {
                     b.HasOne("MegaDesk.Models.DeliveryType", "DeliveryType")
                         .WithMany()
-                        .HasForeignKey("DeliveryTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DeliveryTypeId");
 
                     b.HasOne("MegaDesk.Models.Desk", "Desk")
-                        .WithMany()
-                        .HasForeignKey("DeskId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithOne("DeskQuote")
+                        .HasForeignKey("MegaDesk.Models.DeskQuote", "DeskId");
 
                     b.Navigation("DeliveryType");
 
                     b.Navigation("Desk");
+                });
+
+            modelBuilder.Entity("MegaDesk.Models.Desk", b =>
+                {
+                    b.Navigation("DeskQuote");
                 });
 #pragma warning restore 612, 618
         }
