@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Chase\\source\\repos\\MegaDesk\\MegaDesk\\MegaDesk.csproj": {}
+    "C:\\Users\\Chase\\source\\repos\\MegaDeskChika\\MegaDeskRazor\\MegaDesk\\MegaDesk.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Chase\\source\\repos\\MegaDesk\\MegaDesk\\MegaDesk.csproj": {
+    "C:\\Users\\Chase\\source\\repos\\MegaDeskChika\\MegaDeskRazor\\MegaDesk\\MegaDesk.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Chase\\source\\repos\\MegaDesk\\MegaDesk\\MegaDesk.csproj",
+        "projectUniqueName": "C:\\Users\\Chase\\source\\repos\\MegaDeskChika\\MegaDeskRazor\\MegaDesk\\MegaDesk.csproj",
         "projectName": "MegaDesk",
-        "projectPath": "C:\\Users\\Chase\\source\\repos\\MegaDesk\\MegaDesk\\MegaDesk.csproj",
+        "projectPath": "C:\\Users\\Chase\\source\\repos\\MegaDeskChika\\MegaDeskRazor\\MegaDesk\\MegaDesk.csproj",
         "packagesPath": "C:\\Users\\Chase\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Chase\\source\\repos\\MegaDesk\\MegaDesk\\obj\\",
+        "outputPath": "C:\\Users\\Chase\\source\\repos\\MegaDeskChika\\MegaDeskRazor\\MegaDesk\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,12 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MegaDesk.Data;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<MegaDeskContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MegaDeskContext") ?? throw new InvalidOperationException("Connection string 'MegaDeskContext' not found.")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("MegaDeskContext") ?? throw new System.InvalidOperationException("Connection string 'MegaDeskContext' not found.")));
 
 var app = builder.Build();
 

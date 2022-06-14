@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "teiuSRBaZrIwG5GgNiaaQf6K6UmOcXq3cAWukB4517c1dFHHIGGBPMJUx4W/cg+cvAYeUn2hcPEQsvZhcS2pyQ==",
+  "dgSpecHash": "4d5n1CjI1VTchqNIUkArnLpDz0IlnB0qHJB2f0TM4Pl1YF8FZeLWeDbzFE+QFmE8oycmvFln8VibVGc8Blikgg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Chase\\source\\repos\\MegaDesk\\MegaDesk\\MegaDesk.csproj",
+  "projectFilePath": "C:\\Users\\Chase\\source\\repos\\MegaDeskChika\\MegaDeskRazor\\MegaDesk\\MegaDesk.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Chase\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Chase\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
