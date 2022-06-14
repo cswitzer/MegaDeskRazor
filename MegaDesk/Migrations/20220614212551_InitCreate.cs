@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MegaDesk.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,12 +13,12 @@ namespace MegaDesk.Migrations
                 name: "DeliveryType",
                 columns: table => new
                 {
-                    DeliveryTypeId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DeliveryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PriceUnder1000 = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PriceBetween1000And2000 = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PriceOver1000 = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    DeliveryTypeId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    DeliveryName = table.Column<string>(type: "TEXT", nullable: false),
+                    PriceUnder1000 = table.Column<decimal>(type: "TEXT", nullable: false),
+                    PriceBetween1000And2000 = table.Column<decimal>(type: "TEXT", nullable: false),
+                    PriceOver1000 = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,10 +29,10 @@ namespace MegaDesk.Migrations
                 name: "DesktopMaterial",
                 columns: table => new
                 {
-                    DesktopMaterialId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DesktopMaterialName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cost = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    DesktopMaterialId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    DesktopMaterialName = table.Column<string>(type: "TEXT", nullable: true),
+                    Cost = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,12 +43,12 @@ namespace MegaDesk.Migrations
                 name: "Desk",
                 columns: table => new
                 {
-                    DeskId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Width = table.Column<int>(type: "int", nullable: false),
-                    Depth = table.Column<int>(type: "int", nullable: false),
-                    NumDrawers = table.Column<int>(type: "int", nullable: false),
-                    DesktopMaterialId = table.Column<int>(type: "int", nullable: false)
+                    DeskId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Width = table.Column<int>(type: "INTEGER", nullable: false),
+                    Depth = table.Column<int>(type: "INTEGER", nullable: false),
+                    NumDrawers = table.Column<int>(type: "INTEGER", nullable: false),
+                    DesktopMaterialId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -65,13 +65,13 @@ namespace MegaDesk.Migrations
                 name: "DeskQuote",
                 columns: table => new
                 {
-                    DeskQuoteId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    QuoteDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    QuotePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    DeskId = table.Column<int>(type: "int", nullable: false),
-                    DeliveryTypeId = table.Column<int>(type: "int", nullable: false)
+                    DeskQuoteId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CustomerName = table.Column<string>(type: "TEXT", nullable: false),
+                    QuoteDate = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    QuotePrice = table.Column<decimal>(type: "TEXT", nullable: true),
+                    DeskId = table.Column<int>(type: "INTEGER", nullable: true),
+                    DeliveryTypeId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -80,14 +80,12 @@ namespace MegaDesk.Migrations
                         name: "FK_DeskQuote_DeliveryType_DeliveryTypeId",
                         column: x => x.DeliveryTypeId,
                         principalTable: "DeliveryType",
-                        principalColumn: "DeliveryTypeId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "DeliveryTypeId");
                     table.ForeignKey(
                         name: "FK_DeskQuote_Desk_DeskId",
                         column: x => x.DeskId,
                         principalTable: "Desk",
-                        principalColumn: "DeskId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "DeskId");
                 });
 
             migrationBuilder.CreateIndex(
@@ -103,7 +101,8 @@ namespace MegaDesk.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_DeskQuote_DeskId",
                 table: "DeskQuote",
-                column: "DeskId");
+                column: "DeskId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
