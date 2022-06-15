@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{7001737A-27F7-47CF-8DC0-C5C891195FE4}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MegaDesk/Models/DeliveryType.cs">
+    <Files>
+      <File FileName="MegaDesk/appsettings.json" Line="12" Column="2" />
+      <File FileName="MegaDesk/Program.cs" Line="17" Column="30" />
+      <File FileName="MegaDesk/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="MegaDesk/.gitignore.txt" Line="2" Column="17" />
+      <File FileName="MegaDesk/Models/DeliveryType.cs" Line="7" Column="3" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MegaDesk" expanded="True">
+            <Node name="MegaDesk" expanded="True">
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.MegaDesk PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>

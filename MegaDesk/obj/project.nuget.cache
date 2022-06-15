@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "4d5n1CjI1VTchqNIUkArnLpDz0IlnB0qHJB2f0TM4Pl1YF8FZeLWeDbzFE+QFmE8oycmvFln8VibVGc8Blikgg==",
+=======
+  "dgSpecHash": "ena8VdLlPRVnOQOXds0yhvyrhvNSlPyXkA1Uq3coXpK3I048uCmu3HfcG9fDInb6lZi2zB/CvgCVveIFkcUdzQ==",
+>>>>>>> Stashed changes
   "success": true,
   "projectFilePath": "C:\\Users\\Chase\\source\\repos\\MegaDeskChika\\MegaDeskRazor\\MegaDesk\\MegaDesk.csproj",
   "expectedPackageFiles": [
