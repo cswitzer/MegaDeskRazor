@@ -16,3 +16,19 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+
+h1{
+    color: red;
+}
+
+h1:hover{
+    color:green;
+    font-size: 50px
+}
+
+header{
+    background-color: dimgray;
+    color:azure
+}

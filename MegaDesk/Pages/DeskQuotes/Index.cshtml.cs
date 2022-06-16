@@ -34,7 +34,7 @@ namespace MegaDesk.Pages.DeskQuotes
                 .Include(d => d.Desk.DesktopMaterial)
                 .ToListAsync();
             }
-            /*
+            
             var deskQuote = from d in _context.DeskQuote
                             select d;
 
@@ -43,7 +43,7 @@ namespace MegaDesk.Pages.DeskQuotes
                 deskQuote = deskQuote.Where(d => d.CustomerName.Contains(SearchString));
                 DeskQuote = await deskQuote.ToListAsync();
             }
-            */
+            
         }
     }
 }
