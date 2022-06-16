@@ -20,6 +20,9 @@ namespace MegaDesk.Pages.DeskQuotes
         }
 
         public IList<DeskQuote> DeskQuote { get;set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get;set; }
+
 
         public async Task OnGetAsync()
         {
@@ -31,6 +34,16 @@ namespace MegaDesk.Pages.DeskQuotes
                 .Include(d => d.Desk.DesktopMaterial)
                 .ToListAsync();
             }
+            /*
+            var deskQuote = from d in _context.DeskQuote
+                            select d;
+
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                deskQuote = deskQuote.Where(d => d.CustomerName.Contains(SearchString));
+                DeskQuote = await deskQuote.ToListAsync();
+            }
+            */
         }
     }
 }

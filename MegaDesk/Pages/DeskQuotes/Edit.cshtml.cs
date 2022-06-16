@@ -64,7 +64,7 @@ namespace MegaDesk.Pages.DeskQuotes
                 await _context.SaveChangesAsync();
 
                 // implement quote price later
-                DeskQuote.QuotePrice = 0;
+                DeskQuote.QuotePrice = DeskQuote.GetQuotePrice(_context);
 
                 // save deskquote
                 _context.Attach(DeskQuote).State = EntityState.Modified;

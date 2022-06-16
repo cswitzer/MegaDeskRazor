@@ -52,7 +52,7 @@ namespace MegaDesk.Pages.DeskQuotes
 
             // TODO: delete quote price = 0 later and call GetQuotePrice instead
             DeskQuote.QuoteDate = DateTime.Now;
-            DeskQuote.QuotePrice = 0;
+            DeskQuote.QuotePrice = DeskQuote.GetQuotePrice(_context);
 
             _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();
